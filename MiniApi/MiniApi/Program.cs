@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using MiniApi.Db;
+using MiniApi.Model;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -49,16 +51,4 @@ app.UseSwaggerUI();
 
 await app.RunAsync();
 
-public class Cliente
-{
-    public int Id { get; set; }
-    public string? Nome { get; set; }
-}
 
-public class AppDbContext : DbContext
-{
-    public AppDbContext(DbContextOptions options) : base(options)
-    {
-    }
-    public DbSet<Cliente>? Clientes { get; set; }
-}
